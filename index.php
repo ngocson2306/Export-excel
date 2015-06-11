@@ -38,11 +38,21 @@ $objPHPExcel->getActiveSheet()->setTitle('worksheet_0');
 
 
 $objPHPExcel->setActiveSheetIndex(0);
+/*$export_filename = "{$file_view}";
+   header("Content-Type:  application/x-msexcel");
+   header("Expires: 0");
+   header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+   header('Content-Disposition: attachment; filename='. $export_filename .'.xls');
 
+   header('Content-Type: application/vnd.ms-excel');
+header('Content-Disposition: attachment;filename="01simple.xlsx"');
+header('Cache-Control: max-age=0');*/
 
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
 // $objWriter->save(str_replace('.php', '.xlsx', __FILE__));
- $objWriter->save("file/04featuredemo.xlsx", __FILE__);
-
+  $objWriter->save("file/04featuredemo.xlsx", __FILE__);
+// Echo done
+echo date('H:i:s') , " Done writing files". "</br>";
+echo 'Files have been created in ' , getcwd().'/file';
 
 ?>
